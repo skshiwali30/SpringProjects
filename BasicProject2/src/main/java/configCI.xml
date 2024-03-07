@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+      
+    <bean name = "addressRef" class = "com.example.sp.reference.Address" >
+		<property name = "landmark" value = "Two Horizon" />
+		<property name = "city" value = "Gurugram" />
+		<property name = "pinCode" value = "122022" />
+	</bean>
+	
+	<bean name = "addressRef1" class = "com.example.sp.reference.Address" >
+		<property name = "landmark" value = "One Horizon" />
+		<property name = "city" value = "Delhi" />
+		<property name = "pinCode" value = "125022" />
+	</bean>
+	           
+	<bean name = "ciPerson" class = "com.example.sp.ci.Person" >
+		<constructor-arg>
+			<value>Shiwali</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>30</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean = "addressRef" />
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Java</value>
+				<value>Python</value>
+				<value>JS</value>
+				<value>Linux</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean name = "ciPerson1" class = "com.example.sp.ci.Person" >
+		<constructor-arg value = "Keshav" />
+		<constructor-arg value = "25" type = "int" />
+		<constructor-arg ref = "addressRef1" />
+		<constructor-arg>
+			<list>
+				<value>OS</value>
+				<value>CS</value>
+				<value>Networking</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- index attribute is basically used to change the order like 12 will be num2 and 34 will be num1 -->
+	<!-- type attribute is basically used to tell the type of parameter so that suitable constructor will be called -->
+	<bean name = "add" class = "com.example.sp.ci.Addition">
+		<constructor-arg value = "12" type = "int" index = "1" />
+		<constructor-arg value = "34" type = "int" index = "0" />
+	</bean>
+	
+</beans>

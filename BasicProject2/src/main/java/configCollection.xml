@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+               
+	<bean name = "empColl" class = "com.example.sp.collections.Employees" >
+		<property name = "empName" value = "Keshav" />
+		<property name="skills">
+			<list>
+				<value>Java</value>
+				<value>Spring Core</value>
+				<value>ATG</value>
+			</list>
+		</property>
+		<property name="phones">
+			<set>
+				<value>8768905667</value>
+				<value>8234567888</value>
+			</set>
+		</property>
+		<property name="courses">
+			<map>
+				<entry key = "Java8" value = "2" />
+				<entry key = "ATG Basic" value = "5" />
+				<entry key = "Oracle" value = "3" />
+			</map>
+		</property>
+	</bean>
+	
+</beans>
