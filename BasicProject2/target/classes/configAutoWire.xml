@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    <bean name = "address" class = "com.example.sp.reference.Address">
+		<property name = "landmark" value = "12 Horizon" />
+		<property name = "city" value = "Delhi" />
+		<property name = "pinCode" value = "145678" />
+	</bean>
+	
+    <!--<bean name = "emp" class = "com.example.sp.autowire.Employee">
+		<property name = "name" value = "Keshav" />
+		<property name = "address">
+			<ref bean = "addr" />
+		</property>
+	</bean>-->
+	
+	<!-- ref name, variable name in bean and bean class name should be same i.e. name = "address" just call setter -->
+	<bean name = "emp" class = "com.example.sp.autowire.Employee" autowire="byName" >
+		<property name = "name" value = "Keshav byName" />
+	</bean>
+	
+	<!-- Class type should be same -> class = "com.example.sp.reference.Address irrespective of name -->
+	<bean name = "emp1" class = "com.example.sp.autowire.Employee" autowire="byType" >
+		<property name = "name" value = "Keshav byType" />
+	</bean>
+	
+	<!-- ref name, variable name in bean and bean class name should be same i.e. name = "address" just call constructor-->
+	<bean name = "emp2" class = "com.example.sp.autowire.Employee" autowire="constructor" >
+		<constructor-arg name="name" value="Keshav constructor" />
+	</bean>
+	
+	
+</beans>

@@ -9,6 +9,7 @@ public class Test {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("configCollection.xml");
 		Employees emp = (Employees) context.getBean("empColl");
 		System.out.println("Employees : " + emp);
+		System.out.println(emp.getSkills().getClass().getName()); // bydefault ArrayList
 	}
 
 }

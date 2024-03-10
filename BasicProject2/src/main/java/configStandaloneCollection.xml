@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+               http://www.springframework.org/schema/context  
+               http://www.springframework.org/schema/beans/spring-context-3.0.xsd
+               http://www.springframework.org/schema/util
+               http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+      
+    <!-- standalone collection --> 
+    <util:list list-class = "java.util.LinkedList" id = "frndsList" >
+		<value>Monica</value>
+		<value>Ross</value>
+		<value>Chandler</value>
+	</util:list>
+	
+	<util:map map-class = "java.util.HashMap" id = "bff" >
+		<entry key = "Ram" value = "Shyam" />
+		<entry key = "Monica" value = "Chandler" />
+		<entry key = "Joye" value = "Rachel" />
+		<entry key = "Pheobe" value = "Ross" />
+	</util:map>
+	
+	<util:set set-class = "java.util.HashSet" id = "setList" >
+		<value>Java</value>
+		<value>Data Structure</value>
+	</util:set>
+	
+	<!-- Property is itself a class and extends hashtable -->
+	<util:properties id = "propClass" >
+		<prop key="driver" >com.mysql.jdbc.Driver</prop>
+		<prop key="username" >skshiwali</prop>
+		<prop key="password" >Duster@123</prop>
+	</util:properties>
+              
+	<bean name = "frnd" class = "com.example.sp.standalone.collection.Person" >
+		<property name="friends" ref = "frndsList" />
+		<property name="skills" ref = "setList" />
+		<property name="bestFriends" ref = "bff" />	
+		<property name="prop" ref = "propClass" />
+	</bean>
+	
+</beans>
