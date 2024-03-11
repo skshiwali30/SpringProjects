@@ -3,10 +3,12 @@ package com.example.sp.stereotype;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 // if use only @Component then it will search with object student
 @Component("stObject")
+@Scope("prototype")
 public class Student {
 	@Value("Kiaansh Kumar")
 	private String name;

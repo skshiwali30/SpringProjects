@@ -10,6 +10,17 @@ public class Test {
 		Student st = context.getBean("stObject", Student.class);
 		System.out.println(st);
 		System.out.println(st.getSubject().getClass().getName());
+		
+		System.out.println(st.hashCode());
+		Student st1 = context.getBean("stObject", Student.class);
+		System.out.println(st1.hashCode());
+		
+		Teacher t = (Teacher) context.getBean("teach");
+		Teacher t1 = (Teacher) context.getBean("teach");
+		System.out.println(t);
+		System.out.println(t.hashCode());
+		System.out.println(t1);
+		System.out.println(t1.hashCode());
 	}
 
 }

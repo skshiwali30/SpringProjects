@@ -20,5 +20,10 @@
 		 <value>Social Science</value>
 		 <value>English</value>
 	 </util:list>  
+	 
+	 <bean name = "teach" class = "com.example.sp.stereotype.Teacher" scope = "prototype" >
+		<property name = "tName" value = "Pushpa" />
+		<property name = "sub" value = "Chemistry" />	 
+	 </bean>
 	         
 </beans>
